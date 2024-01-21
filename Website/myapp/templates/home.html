@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert and View Page</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+   
+</head>
+
+<body>
+    <div class="team-name">
+        
+    </div>
+    <div class="container">
+        <!-- Insert Section -->
+        <div class="section insert-section" id="insertSection">
+            <div class="action-btn">Insert Data </div>
+            
+            <!-- Insert Form (visible by default) -->
+            <form id="accountform" name="accform" autocomplete="off" action="insert" method="POST">
+                {% csrf_token %}
+            <div id="insertForm" class="form-container colorful-bg">
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" style="text-transform: capitalize;" required>
+                </div><br>
+  
+                    <div id="nameError"></div>
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" style="text-transform: lowercase;" required>
+                    </div><br>
+                    <div id="emailError"></div>
+            
+                    <div class="input-group">
+                        <label for="creditCard">Credit Card Number:</label>
+                        <input
+                        type="text"
+                        id="creditCard"
+                        name="creditCard"
+                        placeholder="Enter your credit card number"
+                        pattern="[0-9]{16}"
+                        inputmode="numeric"
+                        title="Credit card number must be a 16-digit integer"
+                        required
+                      >
+                    </div>
+                    <div id="creditCardError"></div>
+                    <button class="form-btn1"  onclick="insertData()" type="submit">Save</button>
+                    <p style="color: {{color}}; font-size: 26px;">{{status}}</p>
+
+
+            </div>
+            </form>
+            
+
+        </div>
+
+        <div class="section view-section">
+            <div class="action-btn" >View Data</div>
+            <form id="accountform" name="accform" autocomplete="off" action="view" method="POST">
+                {% csrf_token %}
+                <div id="viewData" class="form-container data-container colorful-bg">
+                    <!-- Enter email section (visible by default) -->
+                    <div class="input-group">
+                        <label for="name">Email:</label>
+                        <input type="email" id="viewEmail" name = "viewemail" placeholder="Enter email for viewing"><br><br>
+                        <button class="form-btn2" onclick="viewData()" type = "submit">View</button>
+                    </div>
+                    <div id="viewemailError"></div>
+                    <!-- View Data Section (hidden by default) -->
+                    <div class="view-data-fields" style="font-size: 29px;" >
+
+
+                        <p style="font-size: 26px;">Name: {{namee}}<span id="viewName"></span></p>
+                        <p style="font-size: 26px;"> Email: {{email}}<span id="viewEmailDisplay"></span></p>
+                        <p style="font-size: 26px;">Credit Card Number: {{ccn}} <span id="viewCreditCard"></span></p>
+
+  
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+
+    <script>
+  
+        function insertData() {
+
+            // Display success message in UI
+            displaySuccessMessage('Data inserted successfully!');
+        }
+        function displaySuccessMessage(message) {
+            var successMessage = document.getElementById('successMessage');
+            successMessage.innerHTML = message;
+            successMessage.style.color = 'green';
+            successMessage.style.fontSize = '24px';
+
+            // You can set a timeout to hide the success message after a few seconds
+            setTimeout(function () {
+                successMessage.innerHTML = '';
+            }, 5000); // Hides the message after 5 seconds (adjust as needed)
+        }
+
+
+    
+    
+     
+    
+    
+            
+        </script>
+    
+ 
+</body>
+
+</html>

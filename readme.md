@@ -14,9 +14,6 @@ CSS
 ##Database used: 
 MS SQL Server
 
-*** SQL code is provided in TDE.sql file
-*** Create required database (for first time uses)
-
 ### Setup Instructions
 
 1. SQL code is provided in the `TDE.sql` file.

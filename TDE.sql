@@ -1,4 +1,4 @@
-/*
+/* --------------------------- for creating database ---------- use this --------
 use master;
 
 --Create Master Key

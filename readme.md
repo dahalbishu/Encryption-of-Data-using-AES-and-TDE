@@ -14,8 +14,16 @@ CSS
 ##Database used: 
 MS SQL Server
 
+*** SQL code is provided in TDE.sql file
+*** Create required database (for first time uses)
+
+### Setup Instructions
+
+1. SQL code is provided in the `TDE.sql` file.
+2. Create the required database for first-time use.
+
 ##To run code:-
-1) Go to the directory Website
+1. Go to the directory Website
 cd Website
-2) Run manage.py 
+2. Run manage.py 
 python manage.py runserver
